@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maintenance Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Maintenance Management</h1>
+    <nav>
+      <ul class="nav-list">
+        <li><button class="nav-btn active" data-target="maintenance">Monthly Maintenance</button></li>
+        <li><button class="nav-btn" data-target="expense">Expense</button></li>
+        <li><button class="nav-btn" data-target="issues">Issues / Suggestions</button></li>
+        <li><button class="nav-btn" data-target="water-cleaning">Water & Cleaning</button></li>
+        <li><button class="nav-btn" data-target="balance">Balance</button></li>
+        <li><button class="nav-btn" data-target="history">History</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Maintenance Form -->
+    <section id="maintenance" class="page active">
+      <h2>Monthly Maintenance</h2>
+      <form id="maintenance-form">
+        <input type="text" name="flatNumber" placeholder="Flat Number" required />
+        <input type="month" name="month" required />
+        <input type="number" name="amount" placeholder="Amount" step="0.01" min="0" required />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- Expense Form -->
+    <section id="expense" class="page">
+      <h2>Expense</h2>
+      <form id="expense-form">
+        <input type="text" name="description" placeholder="Description" required />
+        <input type="number" name="amount" placeholder="Amount" step="0.01" min="0" required />
+        <input type="date" name="date" required />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- Issues Form -->
+    <section id="issues" class="page">
+      <h2>Issues / Suggestions</h2>
+      <form id="issues-form">
+        <input type="text" name="flatNumber" placeholder="Flat Number" required />
+        <textarea name="description" placeholder="Describe issue/suggestion" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Water & Cleaning -->
+    <section id="water-cleaning" class="page">
+      <h2>Water & Cleaning</h2>
+      <form id="water-cleaning-form">
+        <select name="plotNumber" required>
+          <option value="">Select Plot</option>
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="B1">B1</option>
+          <option value="B2">B2</option>
+          <option value="B3">B3</option>
+          <option value="C1">C1</option>
+          <option value="C2">C2</option>
+          <option value="C3">C3</option>
+        </select>
+        <select name="filteredCleaning" required>
+          <option value="">Filtered?</option>
+          <option value="Filtered">Filtered</option>
+          <option value="Not Filtered">Not Filtered</option>
+        </select>
+        <input type="date" name="startDate" required />
+        <input type="date" name="endDate" required />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- Balance Section -->
+    <section id="balance" class="page">
+      <h2>Balance Amount</h2>
+      <p>Total Maintenance: ₹<span id="total-maintenance">0</span></p>
+      <p>Total Expenses: ₹<span id="total-expense">0</span></p>
+      <p>Balance: ₹<span id="balance-amount">0</span></p>
+      <button id="clear-data-btn">Clear All Data</button>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="page">
+      <h2>History</h2>
+      <div>
+        <h3>Maintenance</h3>
+        <table id="maintenance-table"><thead><tr><th>Flat</th><th>Month</th><th>Amount</th><th>Action</th></tr></thead><tbody></tbody></table>
+        <h3>Expenses</h3>
+        <table id="expense-table"><thead><tr><th>Description</th><th>Amount</th><th>Date</th><th>Action</th></tr></thead><tbody></tbody></table>
+        <h3>Issues</h3>
+        <table id="issues-table"><thead><tr><th>Flat</th><th>Description</th><th>Action</th></tr></thead><tbody></tbody></table>
+        <h3>Water & Cleaning</h3>
+        <table id="water-cleaning-table"><thead><tr><th>Plot</th><th>Status</th><th>From</th><th>To</th><th>Action</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
